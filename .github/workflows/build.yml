@@ -116,6 +116,8 @@ jobs:
       - name: Build
         shell: bash
         run: |
+          pwd
+          find
           if [[ ${{inputs.mksklipad50_minimal}} == "true" ]] ; then BUILD_MINIMAL=yes ; else BUILD_MINIMAL=false ; fi
           if [[ ${{inputs.mksklipad50_desktop}} == "true" ]] ; then BUILD_DESKTOP=yes ; else BUILD_DESKTOP=false ; fi
           echo "./compile.sh \
@@ -131,8 +133,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Armbian-unofficial-MKS-Klipad50
-          path: ./tmtestjustthedocs
-            #path: ./armbian-mkspi/output/images/
+          path: .
+          #path: ./tmtestjustthedocs
+          #path: ./armbian-mkspi/output/images/
 
       - uses: actions/download-artifact@v4
         with:
